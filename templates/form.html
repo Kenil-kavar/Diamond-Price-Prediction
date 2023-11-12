@@ -1,0 +1,159 @@
+<html>
+  
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background:linear-gradient(40deg, #000000 0%,#06018f 100%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110vh;
+}
+
+form {
+  background-color: #333333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height:95%;
+}
+.form-group {
+  margin-bottom: 7px;
+  width:100%%;
+  background-position: right 8px center;
+  background-size: 14px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  width:100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+  background: #ffffff;
+}
+select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23333"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+  
+  
+}
+select{
+  width: 100%;
+  padding: 6px;
+  margin-top: 2px;
+  
+  border-radius: 4px;
+}
+input{
+  width:100%%;
+}
+h2 {
+  color: #2f3fc2* Change this to the color you want */
+}
+.my{
+  width:100%;
+  padding: 6px;
+  margin-top: 2px;
+  border-radius: 4px;
+}
+</style>
+<body>
+<form action="{{url_for('predict_datapoint')}}" method="POST">
+    <div class="form-group">
+        <label  for="carat">Carat:</label>
+        <input class="my" type="text" id="carat" name="carat" placeholder="Enter carat value (float)">
+    </div>
+
+    <div class="form-group">
+        <label for="depth">Depth:</label>
+        <input class="my" type="text" id="depth" name="depth" placeholder="Enter depth value (float)">
+    </div>
+
+    <div class="form-group">  
+        <label for="table">Table:</label>
+        <input class="my" type="text" id="table" name="table" placeholder="Enter table value (float)">
+    </div>
+    
+    <div class="form-group">
+        <label for="x">x:</label>
+        <input class="my" type="text" id="x" name="x" placeholder="Enter x value (float)">
+    </div>
+  
+    <div class="form-group">
+        <label for="y">y:</label>
+        <input class="my" type="text" id="y" name="y" placeholder="Enter y value (float)">
+    </div>
+  
+    <div class="form-group">
+        <label for="z">z:</label>
+        <input class="my" type="text" id="z" name="z" placeholder="Enter z value (float)">
+    </div>         
+  
+<div class="form-group">
+  <label for="cut">Cut:</label>
+  <select id="cut" name="cut">
+    <option value="Fair">Fair</option>
+    <option value="Good">Good</option>
+    <option value="Very Good">Very Good</option>
+    <option value="Premium">Premium</option>
+    <option value="Ideal">Ideal</option>
+  </select>
+</div>
+  
+<div class="form-group">
+  <label for="color">Color:</label>
+  <select id="color" name="color">
+    <option value="D">D</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="G">G</option>
+    <option value="H">H</option>
+    <option value="I">I</option>
+    <option value="J">J</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="clarity">Clarity:</label>
+  <select id="clarity" name="clarity">
+    <option value="I1">I1</option>
+    <option value="SI2">SI2</option>
+    <option value="SI1">SI1</option>
+    <option value="VS2">VS2</option>
+    <option value="VS1">VS1</option>
+    <option value="VVS2">VVS2</option>
+    <option value="VVS1">VVS1</option>
+    <option value="IF">IF</option>
+  </select>
+</div>
+
+<div style="clear:both;"></div>
+  <input type="submit" value="Submit">
+</form>
+
+<h2>Predicted results are: {{final_result}}</h2>
+</body>
+</html>
